@@ -1,10 +1,10 @@
 puts "Введите значение основания треугольника"
-a = gets.chomp
+a = gets.to_f
 
 puts "Введите значение высоты треугольника"
 
-h = gets.chomp
+h = gets.to_f
 
-triangle_area = 1/2.to_f * a.to_i * h.to_i
+triangle_area = (0.5 * a * h).round(2)
 
 puts "Площадь треугольника с основанием равным #{a} и высотой равной #{h} составит #{triangle_area}"

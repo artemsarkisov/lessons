@@ -1,9 +1,9 @@
 puts "What is your name?"
 name = gets.chomp
 puts "What is your height?"
-height = gets.chomp
+height = gets.to_f.round(1)
 
-ideal_weight = (height.to_f - 110).round(1)
+ideal_weight = (height - 110)
 
 if ideal_weight > 0
   puts "#{name.capitalize}, your ideal weight would be #{ideal_weight}"
