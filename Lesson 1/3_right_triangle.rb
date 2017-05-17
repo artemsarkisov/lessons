@@ -5,7 +5,6 @@ b = gets.to_f
 c = gets.to_f
 
 val = [a, b, c].sort
-
 right_triangle     = val[2]**2 == val[0]**2 + val[1]**2
 isosceles_triangle = val.uniq.length == 2
 equal_triangle     = val.uniq.length == 1
