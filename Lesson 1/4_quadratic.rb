@@ -1,24 +1,23 @@
 p "insert first quotient"
-
 a = gets.to_f
 
 p "insert second quotient"
-
 b = gets.to_f
 
 p "insert third quotient"
-
 c = gets.to_f
 
 discriminant = b**2 - 4 * a * c
 
+
 if discriminant > 0
-  x1 = ((- b + Math.sqrt(discriminant)) / (2 * a)).to_f.round(2)
-  x2 = ((- b - Math.sqrt(discriminant)) / (2 * a)).to_f.round(2)
+  square_root = Math.sqrt(discriminant)
+  x1          = ((-b + square_root) / (2 * a))
+  x2          = ((-b - square_root) / (2 * a))
   p "D = #{discriminant}, x1 = #{x1}, x2 = #{x2}"
 elsif discriminant == 0
-  x = (- b / (2 * a)).to_f
+  x = (-b / (2 * a))
   p "D = #{discriminant}, x1 = x2 = #{x}"
-elsif discriminant < 0
+else
   p "D = #{discriminant}, no roots"
 end

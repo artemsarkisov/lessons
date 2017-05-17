@@ -6,16 +6,14 @@ c = gets.to_f
 
 val = [a, b, c].sort
 
-right_triangle = val[2]**2 == val[0]**2 + val[1]**2
-isosceles_triangle = right_triangle && uniq.length == 2
-equal_triangle = val[0] = val.uniq.length == 1
+right_triangle     = val[2]**2 == val[0]**2 + val[1]**2
+isosceles_triangle = val.uniq.length == 2
+equal_triangle     = val.uniq.length == 1
 
-if isosceles_triangle
-  p "Это прямоугольный равнобедренный треугольник"
-elsif right_triangle
-  p "Это прямоугольный треугольник"
+if right_triangle
+  p "Это прямоугольный #{'равнобедренный ' if isosceles_triangle}треугольник."
 elsif equal_triangle
   p "Это не прямоугольный, а равнобедренный равносторонний треугольник."
 else
-  p "Это не прямоугольный треугольник"
+  p "Это не прямоугольный треугольник."
 end
