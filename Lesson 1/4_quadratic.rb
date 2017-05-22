@@ -12,8 +12,10 @@ discriminant = b**2 - 4 * a * c
 
 if discriminant > 0
   square_root = Math.sqrt(discriminant)
-  x1          = ((-b + square_root) / (2 * a))
-  x2          = ((-b - square_root) / (2 * a))
+
+  x1 = ((-b + square_root) / (2 * a))
+  x2 = ((-b - square_root) / (2 * a))
+
   p "D = #{discriminant}, x1 = #{x1}, x2 = #{x2}"
 elsif discriminant == 0
   x = (-b / (2 * a))
