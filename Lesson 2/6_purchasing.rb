@@ -16,11 +16,11 @@ end
 
 total = []
 
-hash.each do |key, value|
-  value.each do |price, amount|
+hash.each do |product_name, price_amount|
+  price_amount.each do |price, amount|
     sum = price * amount
     total.push(sum)
-    p "#{key}: price: #{price}, amount: #{amount}, paid: #{sum}"
+    p "#{product_name}: price: #{price}, amount: #{amount}, paid: #{sum}"
   end
 end
 
