@@ -16,6 +16,6 @@ end
 if month == 1
   p day
 else
-  date = months[0..(month - 2)].inject(:+) + day
+  date = months.take(month - 1).inject(:+) + day
   p date
 end
