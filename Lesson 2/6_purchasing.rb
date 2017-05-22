@@ -12,7 +12,6 @@ loop do
   product_amount = gets.chomp.to_f
 
   hash[product_name] = { product_price => product_amount }
-
 end
 
 total = []
