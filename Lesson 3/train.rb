@@ -70,7 +70,7 @@ class Train
     if @waggons == 0
       puts "The train has no waggons"
     else
-      @waggons -= 1 && @current_speed == 0
+      @waggons -= 1 if @current_speed == 0
     end
   end
 
