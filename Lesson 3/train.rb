@@ -8,7 +8,7 @@ class Station
   end
 
   def get_train(train)
-    @trains_list < train
+    @trains_list << train
   end
 
   def trains_by_number
@@ -45,7 +45,7 @@ end
 
 class Train
 
-  attr_reader :number, :current_speed, :waggons, :type, :current_station
+  attr_reader :number, :current_speed, :waggons, :type, :current_station, :previous_station, :next_station
 
   def initialize(number, type, waggons)
     @number        = number
@@ -54,7 +54,7 @@ class Train
     @current_speed = 0
   end
 
-  def speed_up(speed)
+  def speed_up=(speed)
     @current_speed += speed
   end
 
@@ -67,23 +67,33 @@ class Train
   end
 
   def detach_waggon
-    @waggons -= 1 if @current_speed == 0
+    if @waggons == 0
+      puts "The train has no waggons"
+    else
+      @waggons -= 1 && @current_speed == 0
+    end
   end
 
-  def route_list(route)
-    @route           = route.stations_list
-    @current_station = @route.first
+  def route=(route)
+    @route            = route
+    @current_station  = @route.stations_list[0]
+    @next_station     = @route.stations_list[1]
+    @previous_station = nil
   end
 
-  def next_station
-    puts "It's the last station" if @current_station == @route.last
-    station_index    = @route.index(@current_station) + 1
-    @current_station = @route[station_index]
+  def move_to_next_station
+    puts "It's the last station" if @current_station == @route.stations_list.last
+    station_index     = @route.stations_list.index(@current_station) + 1
+    @next_station     = @route.stations_list[station_index + 1]
+    @previous_station = @current_station
+    @current_station  = @route.stations_list[station_index]
   end
 
-  def previous_station
-    puts "It's the first station" if @current_station == @route.first
-    station_index    = @route.index(@current_station) - 1
-    @current_station = @route[station_index]
+  def move_to_previous_station
+    puts "It's the first station" if @current_station == @route.stations_list.first
+    station_index    = @route.stations_list.index(@current_station) - 1
+    @next_station    = @current_station
+    @next_station    = @route.stations_list[station_index - 1]
+    @current_station = @route.stations_list[station_index]
   end
 end
