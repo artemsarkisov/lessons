@@ -3,6 +3,7 @@ class Train
   attr_reader :current_speed, :current_station, :previous_station, :next_station, :route, :number
 
   def initialize(number)
+    @waggons       = []
     @number        = number
     @current_speed = 0
   end
@@ -49,21 +50,16 @@ class Train
   end
 
   def attach_waggon(waggon)
-    @waggons = []
-    @waggons << waggon if @current_speed == 0
+    @waggons << waggon if @current_speed.zero?
     puts "Attached one waggon"
   end
 
-  def detach_waggon
-    if @waggons.nil? || @waggons.empty?
-      puts "The train has no waggons"
-    else
-      @waggons.delete_at(-1)
-      puts "Detached 1 waggon"
-    end
+  def detach_waggon(waggon)
+    @waggons.delete(waggon)
+    puts "Detached 1 waggon"
   end
 
   def waggons
-    puts @waggons
+    @waggons
   end
 end

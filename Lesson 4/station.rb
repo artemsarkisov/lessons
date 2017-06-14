@@ -17,11 +17,9 @@ class Station
     end
   end
 
-  def trains_by_type
-
-    passenger = @trains_list.select { |train| train.type == :passenger }
-    cargo     = @trains_list.select { |train| train.type == :cargo }
-    puts "#{passenger.length} passenger train(s), and #{cargo.length} cargo train(s) on the station"
+  def trains_by_type(type)
+    selection = @trains_list.select { |train| train.type == type }
+    puts "#{type.capitalize} trains: #{selection.length}"
   end
 
   def depart(train)

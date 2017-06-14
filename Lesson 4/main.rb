@@ -1,33 +1,31 @@
-require_relative 'interface'
 require_relative 'menu'
 
 loop do
-  Menu.print
-
+  Menu.print_menu
   user_input = gets.chomp.to_i
   case user_input
     when 1
-      create_station
+      Menu.create_station
     when 2
-      create_train
+      Menu.create_train
     when 3
-      create_route
+      Menu.create_route
     when 4
-      edit_route
+      Menu.edit_route
     when 5
-      assign_route
+      Menu.assign_route
     when 6
-      add_waggon
+      Menu.add_waggon
     when 7
-      remove_waggon
+      Menu.remove_waggon
     when 8
-      move_forward
+      Menu.move_forward
     when 9
-      move_back
+      Menu.move_back
     when 10
-      list_of_stations
+      Menu.list_of_stations
     when 11
-      trains_current_station
+      Menu.trains_current_station
     else
       break
   end
