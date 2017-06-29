@@ -11,7 +11,7 @@ module InstanceCounter
     end
 
     def instances
-      puts @instances
+      @instances
     end
   end
 

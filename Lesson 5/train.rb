@@ -11,7 +11,7 @@ class Train
   @@trains = {}
 
   def self.find(number)
-    @@trains.select { |key, value| puts value if key == number }
+    puts @@trains[number]
   end
 
   def initialize(number)
