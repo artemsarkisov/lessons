@@ -11,7 +11,7 @@ class Train
   @@trains = {}
 
   def self.find(number)
-    puts @@trains[number]
+    @@trains[number]
   end
 
   def initialize(number)
