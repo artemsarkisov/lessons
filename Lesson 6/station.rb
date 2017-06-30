@@ -14,15 +14,9 @@ class Station
 
   def initialize(name)
     @name        = name
+    validate!
     @trains_list = []
     @@stations << self
-    validate!
-  end
-
-  def validate!
-    raise "Name can't be nil" if name.nil? #нужно ли проверять на nil при обязательном параметре в конструкторе?
-    raise "Station should have at least two symbols" if @name.length < 2
-    true
   end
 
   def get_train(train)
@@ -42,5 +36,13 @@ class Station
 
   def depart(train)
     @trains_list.delete(train)
+  end
+
+  private
+
+  def validate!
+    raise "Name can't be nil" if name.nil?
+    raise "Station should have at least two symbols" if @name.length < 2
+    true
   end
 end

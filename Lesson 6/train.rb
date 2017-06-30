@@ -19,18 +19,12 @@ class Train
   end
 
   def initialize(number)
-    @waggons         = []
     @number          = number
+    validate!
+    @waggons         = []
     @current_speed   = 0
     @@trains[number] = self
     register_instance
-    validate!
-  end
-
-  def validate!
-    raise "Number can't be nil" if number.nil? #нужно ли проверять на nil при обязательном параметре в конструкторе?
-    raise "Incorrect number format, try again." unless number =~ TRAIN_NUMBER
-    true
   end
 
   def speed_up=(speed)
@@ -76,5 +70,12 @@ class Train
 
   def waggons
     @waggons
+  end
+
+  private
+
+  def validate!
+    raise "Incorrect number format, try again." unless number =~ TRAIN_NUMBER
+    true
   end
 end

@@ -12,13 +12,6 @@ class Route
     validate!
   end
 
-  def validate!
-    # raise "Route should be created from available stations!" unless self.stations_list.each {|station| station.class == Station}
-    # ^почему данная конструкция не работает?
-    raise "Route should be created from available stations" unless stations_list.all? { |station| station.is_a?(Station) }
-    true
-  end
-
   def add_station(interim_st)
     raise "The station is already in use" if @stations_list.include?(interim_st)
     @stations_list.insert(-2, interim_st)
@@ -27,5 +20,12 @@ class Route
   def remove_station(interim_st)
     raise "The route can't have less than two stations" if @stations_list.length <3
     @stations_list.delete(interim_st)
+  end
+
+  private
+
+  def validate!
+    raise "Route should be created from available stations" unless stations_list.all? { |station| station.is_a?(Station) }
+    true
   end
 end
