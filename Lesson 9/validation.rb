@@ -30,8 +30,8 @@ module Validation
       raise "Value can't be nil or empty" if value.nil?
     end
 
-    def format(name, format)
-      raise "Attribute doesn't match required format" unless name.to_s.match(format[0])
+    def format(value, format)
+      raise "Attribute doesn't match required format" unless value.to_s.match(format[0])
     end
 
     def type(value, klass)
